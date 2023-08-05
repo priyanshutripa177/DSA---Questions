@@ -1,0 +1,15 @@
+//Optimal approach with T.C of O(n).
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int size=numbers.size();
+        int low=0;int high=size-1;
+        while(low<high){
+            int temp=numbers[low]+numbers[high];
+            if(temp==target)return {low+1,high+1};
+            else if(temp>target)high--;
+            else low++;
+        }
+        return {};
+    }
+};
