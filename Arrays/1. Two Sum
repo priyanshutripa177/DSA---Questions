@@ -1,0 +1,21 @@
+#define ll long long
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<vector<int>>v;
+        int low=0,high=nums.size()-1;
+        for(int i=0;i<nums.size();i++){
+            v.push_back({nums[i],i});
+        }
+        sort(v.begin(),v.end());
+        while(low<high){
+            int temp=v[low][0]+v[high][0];
+            if(temp==target){
+                return {v[low][1],v[high][1]};
+            }
+            else if(temp>target)high--;
+            else low++;
+        }
+        return {};
+    }
+};
